@@ -19,18 +19,29 @@ window.onload = () => {
         }, 100);
 
         circle.addEventListener('transitionend', () => {
-            document.querySelector('.container').style.opacity = 1;
             circle.remove();
         });
     }
-    document.querySelector('.container').style.opacity = 1;
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', function() {
-            let clicked = document.querySelector('id');
-            cardActivate(this.id);
-        });
+    const darkModeToggle = document.getElementById('darkMode');
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        darkModeToggle.innerText = document.body.classList.contains('dark') ? '☀️' : '🌙';
     });
-    function cardActivate(id) {
-        
-    }
+    // document.querySelectorAll('.card').forEach(card => {
+    //     card.addEventListener('click', function() {
+    //         event.stopPropagation();
+    //         document.querySelector('.container').classList.add('hidden');
+    //         this.classList.add('clicked');
+    //          document.addEventListener('click', function reset(event) {
+    //         if (!event.target.closest('.card')) {
+    //             // Remove the clicked class and restore the layout
+    //             document.querySelectorAll('.card').forEach(c => c.classList.remove('clicked'));
+    //             document.querySelector('.container').classList.remove('hidden');
+                
+    //             // Remove this event listener after resetting
+    //             document.removeEventListener('click', reset);
+    //         }
+    //     }, { once: true });
+    //     });
+    // });
 }

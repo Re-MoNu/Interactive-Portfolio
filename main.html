@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Portfolio</title>
+    <title>Chanho's Portfolio</title>
     <link rel="stylesheet" href="mainStyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap">
-</head>
+    </head>
 <body>
-    <button onclick="window.location.href='index.html'">return</button>
+    <button onclick="window.location.href='index.html'" id="return">return</button>
     <div class="header">
-        <h1>Interactive Portfolio</h1>
-        <h4>By Chanho Uhm (Zackary)</h4>
+        
+        <h1>Programming Portfolio</h1>
+        <a onclick="window.location.href='about.html'">By Chanho Uhm (Zackary)</a>
     </div>
     <script src="mainScript.js"></script>
     <div class="container">
-        <div class="card" id="card1">
+        <div class="card complete">
             <img src="images/project1.jpg" alt="Project 1">
         </div>
-        <div class="card" id="card2">
+        <div class="card wip" onclick="alert('We are still working on this project!')">
             <img src="images/project2.jpg" alt="Project 2">
         </div>
-        <div class="card" id="card3">
-            <img src="images/project3.jpg" alt="Project 3">
+        <div class="card complete" onclick="window.location.href='projects/test3'">
+            <img src="images/project3.jpg" alt="Project 3"">
         </div>
     </div>
+    <button id="darkMode">🌙</button>
 </body>
 </html>

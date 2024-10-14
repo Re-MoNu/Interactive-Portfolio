@@ -1,3 +1,4 @@
+/* circle transition */
 .circle-transition {
   width: 500px;
   height: 500px;
@@ -9,15 +10,22 @@
 .circle-transition.unexpand {
   transform: scale(0);
 }
+
+/* content */
+
 .content {
   z-index: 0;
   opacity: 0;
 }
 h1{
     margin-bottom: 0px;
+    margin-top: 3%;
+    font-family: "Londrina Sketch";
+    font-size: 2em;
 }
-h6 {
-    margin-top: 0px;
+a{
+    font-size: 0.75em;
+    font-family: 'Courier New', Courier, monospace;
 }
 .container {
     justify-items: center;
@@ -26,7 +34,7 @@ h6 {
     gap: 2%;
     padding: 20px;
     transition: 0.2s;
-    opacity: 0;
+    visibility: visible;
 }
 
 @media (max-width: 768px) {
@@ -37,13 +45,15 @@ h6 {
     }
 }
 .header {
-    font-family: "Londrina Sketch";
-    font-size: 3em;
-    
     text-align: center;
+    font-size: 3em;
+    padding-bottom: 50px;
 }
+
+/* cards */
+
 .card {
-    background-color: white;
+    background-color: black;
     border-radius: 10px;
     border-color: black;
     border-style: solid;
@@ -55,28 +65,81 @@ h6 {
     max-width: 100%;
     aspect-ratio: 16/9;
 }
-.card:hover {
+.card.complete:hover {
     transform: scale(1.15);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-style: solid;
+    border-color: lime;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
-.card.clicked {
-    transform: scale(3);
-    z-index: 1;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-}
-body {
-    background-color: #f0f0f0;
-    padding: 20px;
-    margin: 0;
+.card.wip:hover {
+    border-color: red;
+    cursor: not-allowed;
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.5);
 }
 .card img {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 10px;
     object-fit: cover;
     pointer-events: none;
+}
+
+/* dark mode */
+#darkMode {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+#darkMode:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+body.dark {
+    background-color: #222222;
+    color: #FFFFFF;
+}
+body.dark #darkMode {
+    background-color: #fff;
+    color: #333;
+}
+body.dark .card {
+    border-color: whitesmoke;
+}
+
+/* .container.hidden .card.clicked {
+    opacity: 1;
+    transform: scale(2);
+    position: absolute;
+    z-index: 1972;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+.container.hidden .card {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity transform 0.1s ease;
+    pointer-events: none;
+} */
+body {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 0;
+    transition: background-color 0.2s;
+}
+#return {
+    position: absolute;
 }
