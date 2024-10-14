@@ -1,0 +1,82 @@
+.circle-transition {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  transform: scale(10);
+  transition: transform 1s ease-out, opacity 2s ease-out;
+  position: absolute;
+}
+.circle-transition.unexpand {
+  transform: scale(0);
+}
+.content {
+  z-index: 0;
+  opacity: 0;
+}
+h1{
+    margin-bottom: 0px;
+}
+h6 {
+    margin-top: 0px;
+}
+.container {
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    padding: 20px;
+    transition: 0.2s;
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        padding: 10px;
+    }
+}
+.header {
+    font-family: "Londrina Sketch";
+    font-size: 3em;
+    
+    text-align: center;
+}
+.card {
+    background-color: white;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    padding: 0;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+}
+.card:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-style: solid;
+}
+.card.clicked {
+    transform: scale(3);
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+body {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 0;
+}
+.card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    pointer-events: none;
+}

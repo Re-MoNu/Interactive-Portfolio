@@ -29,11 +29,12 @@ function startAnimation() {
         if(i===4) {
             setTimeout(() => {
                 transitionToNextPage(circle.style.backgroundColor);
-                alert('Welcome to the main page!');
             }, i*500);
         }
     }
 }
 transitionToNextPage = (baseColor) => {
-    window.location.href = 'main.html';
+    window.location.href = 'main.html?';
+    sessionStorage.setItem('transitionColor', baseColor);
+    sessionStorage.setItem('reloaded', false);
 }
