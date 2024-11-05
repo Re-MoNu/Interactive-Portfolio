@@ -5,7 +5,7 @@
   border-radius: 50%;
   transform: scale(10);
   transition: transform 1s ease-out, opacity 2s ease-out;
-  position: absolute;
+  position: fixed;
 }
 .circle-transition.unexpand {
   transform: scale(0);
@@ -20,7 +20,7 @@
 h1{
     margin-bottom: 0px;
     margin-top: 3%;
-    font-family: "Londrina Sketch";
+    font-family: 'Times New Roman', Times, serif;
     font-size: 2em;
 }
 a{
@@ -33,7 +33,7 @@ a{
     grid-template-columns: repeat(3, 1fr);
     gap: 2%;
     padding: 20px;
-    transition: 0.2s;
+    transition: 0.25s;
     visibility: visible;
 }
 
@@ -61,7 +61,7 @@ a{
     overflow: hidden;
     margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.2s;
+    transition: 0.25s;
     max-width: 100%;
     aspect-ratio: 16/9;
 }
@@ -98,7 +98,7 @@ a{
     font-size: 24px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 #darkMode:hover {
     transform: scale(1.1);
@@ -106,7 +106,8 @@ a{
 }
 body.dark {
     background-color: #222222;
-    color: #FFFFFF;
+    
+    color: #f0f0f0; 
 }
 body.dark #darkMode {
     background-color: #fff;
@@ -115,7 +116,10 @@ body.dark #darkMode {
 body.dark .card {
     border-color: whitesmoke;
 }
-
+body.dark #return {
+    color: #f0f0f0;
+    border-color: #f0f0f0;
+}
 /* .container.hidden .card.clicked {
     opacity: 1;
     transform: scale(2);
@@ -138,8 +142,10 @@ body {
     background-color: #f0f0f0;
     padding: 20px;
     margin: 0;
-    transition: background-color 0.2s;
+    transition: background-color 0.5s;
 }
 #return {
     position: absolute;
+    background: none;
+    border-radius: 3px;
 }
