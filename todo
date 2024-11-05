@@ -4,6 +4,3 @@ improvements:
 1. dark mode color is awkward.
 2. transition between dark mode and light mode is awkward.
 Bug Fixes:
-1. main screen flashing when loading from index.
-2. main screen blinking when reloading with dark mode.
-3. shrinking circle spawning in wrong coord.

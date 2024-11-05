@@ -11,20 +11,24 @@ function startAnimation() {
     let buttonCenterX = rect.left + scrollLeft + rect.width / 2;
     let buttonCenterY = rect.top + scrollTop + rect.height / 2;
 
+    let previousColor = Math.random() * 360;
+
     for(let i=0;i<5;i++) {
         let circle = document.createElement('div');
         circle.id = 'circle' + i;
         circle.classList.add('circle');
+        //FIXME: this doesn't center properly.
         circle.style.left = (buttonCenterX - 250) + 'px';
         circle.style.top = (buttonCenterY - 250) + 'px';
         circle.style.zIndex = i;
         document.body.appendChild(circle);
-
-        circle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
         
+        previousColor = previousColor + 60;
+        circle.style.backgroundColor = 'hsl(' + previousColor + ', 100%, 50%)';
+
         setTimeout(() => {
             circle.classList.add('expand');
-        }, i*100);
+        }, i*150);
 
         if(i===4) {
             setTimeout(() => {

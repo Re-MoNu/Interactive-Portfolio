@@ -8,13 +8,44 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap">
     </head>
 <body>
-    <button onclick="window.location.href='index.html'" id="return">return</button>
+    <script>
+        if(sessionStorage.getItem('reloaded') === 'false') {
+       const urlParams = new URLSearchParams(window.location.search);
+       const startcolor = sessionStorage.getItem('transitionColor');
+       sessionStorage.setItem('reloaded', true);
+
+       const centerX = window.innerWidth / 2;
+       const centerY = window.innerHeight / 2;
+
+       const circle = document.createElement('div');
+       circle.style.position = 'fixed';
+       circle.style.left = centerX + 'px';
+       circle.style.top = centerY + 'px';
+       circle.classList.add('circle-transition');
+       circle.style.backgroundColor = startcolor;
+       document.body.appendChild(circle);
+
+       setTimeout(() => {
+           circle.classList.add('unexpand');
+       }, 100);
+
+       circle.addEventListener('transitionend', () => {
+           circle.remove();
+       });
+   }
+   </script>
+
+
+
+    <div class="navbar">
+        <a onclick="window.location.href='index.html'" class="navButton" id="return">Return</a>
+    </div>
     <div class="header">
-        
         <h1>Programming Portfolio</h1>
         <a onclick="window.location.href='about.html'">By Chanho Uhm (Zackary)</a>
     </div>
     <script src="mainScript.js"></script>
+    
     <div class="container">
         <div class="card complete">
             <img src="images/project1.jpg" alt="Project 1">
