@@ -1,4 +1,4 @@
-/* circle transition */
+/* ===== circle transition ===== */
 
 .circle-transition {
   width: 500px;
@@ -13,7 +13,7 @@
   transform: scale(0);
 }
 
-/* navbar */
+/* ===== navbar ====== */
 
 .navbar {
   position: fixed;
@@ -33,20 +33,31 @@
   text-decoration: underline;
   font-weight: bold;
 }
-/* content */
+/* ===== header ====== */
 
-.content {
-  z-index: 0;
-  opacity: 0;
+.header {
+    text-align: center;
+    font-size: 3em;
+    padding-bottom: 50px;
+    width: 100%;
 }
+
 h1{
     margin-bottom: 0px;
     margin-top: 4%;
     font-family: "Times New Roman";
     font-size: 2em;
 }
+
 a{
     font-size: 0.75em;
+}
+
+/* ===== content ====== */
+
+.content {
+  z-index: 0;
+  opacity: 0;
 }
 .container {
     justify-items: center;
@@ -56,6 +67,7 @@ a{
     padding: 20px;
     transition: 0.25s;
     visibility: visible;
+    grid-auto-rows: 1fr;
 }
 
 @media (max-width: 768px) {
@@ -64,14 +76,16 @@ a{
         gap: 10px;
         padding: 10px;
     }
-}
-.header {
-    text-align: center;
-    font-size: 3em;
-    padding-bottom: 50px;
+    .card {
+        min-width: none;
+        max-width: 100px;
+    }
+    .header {
+        font-size: 2em;
+    }
 }
 
-/* cards */
+/* ===== cards ===== */
 
 .card {
     background-color: black;
@@ -83,8 +97,9 @@ a{
     margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: 0.25s;
-    max-width: 100%;
-    aspect-ratio: 16/9;
+    min-width: 100%;
+    aspect-ratio: 4/3;
+    min-height: 200px;
 }
 .card.complete:hover {
     transform: scale(1.15);
@@ -100,12 +115,32 @@ a{
 .card img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     pointer-events: none;
 }
 
-/* dark mode */
+.card.fade {
+    transform: scale(0.9);
+    opacity: 0.5;
+}
+
+.card.hide {
+    opacity: 0;
+}
+
+.card.selected {
+    transition: 0.5s;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    z-index: 1000;
+    width: 70%;
+    height: 100%;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+}
+/* ===== dark mode ===== */
+
 #darkMode {
     position: fixed;
     bottom: 20px;
@@ -144,24 +179,9 @@ body.dark #return {
     color: #f0f0f0;
     border-color: #f0f0f0;
 }
-/* .container.hidden .card.clicked {
-    opacity: 1;
-    transform: scale(2);
-    position: absolute;
-    z-index: 1972;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform-origin: center;
-    max-width: 90vw;
-    max-height: 90vh;
-}
-.container.hidden .card {
-    opacity: 0;
-    transform: scale(0.5);
-    transition: opacity transform 0.1s ease;
-    pointer-events: none;
-} */
+
+/* ===== Body ===== */
+
 body {
     background-color: #f0f0f0;
     padding: 20px;
@@ -173,4 +193,24 @@ body {
     position: absolute;
     background: none;
     border-radius: 3px;
+}
+/* ===== Animations ===== */
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+.card.wip.shake {
+    animation: shake 0.5s ease;
 }
